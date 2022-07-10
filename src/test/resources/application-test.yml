@@ -5,7 +5,3 @@ spring:
     url: jdbc:postgresql://localhost:5432/monopolydb
     username: admin
     password: admin
-
-server:
-  servlet:
-    context-path: /monopoly

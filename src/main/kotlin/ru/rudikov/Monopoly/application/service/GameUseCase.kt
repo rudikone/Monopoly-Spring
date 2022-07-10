@@ -1,10 +1,10 @@
 package ru.rudikov.Monopoly.application.service
 
 import org.springframework.stereotype.Service
+import ru.rudikov.Monopoly.adapter.out.GameRepository
 import ru.rudikov.Monopoly.application.port.`in`.CellPort
 import ru.rudikov.Monopoly.application.port.`in`.ChipPort
 import ru.rudikov.Monopoly.application.port.`in`.GamePort
-import ru.rudikov.Monopoly.application.port.out.GamePersistancePort
 import ru.rudikov.Monopoly.domain.Game
 import ru.rudikov.Monopoly.domain.GameRequest
 
@@ -12,7 +12,7 @@ import ru.rudikov.Monopoly.domain.GameRequest
 class GameUseCase(
     private val chipPort: ChipPort,
     private val cellPort: CellPort,
-    private val gamePersistancePort: GamePersistancePort
+    private val gameRepository: GameRepository
 ) : GamePort {
 
     override fun start(request: GameRequest): Game {
@@ -21,6 +21,6 @@ class GameUseCase(
 
         val game = Game(chips = chips, cells = cells)
 
-        return gamePersistancePort.save(game)
+        return gameRepository.save(game)
     }
 }

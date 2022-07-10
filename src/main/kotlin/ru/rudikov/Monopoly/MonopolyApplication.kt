@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class MonopolyApplication
 
 fun main(args: Array<String>) {
-	runApplication<MonopolyApplication>(*args)
+    runApplication<MonopolyApplication>(*args)
 }
