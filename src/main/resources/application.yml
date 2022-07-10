@@ -5,7 +5,15 @@ spring:
     url: jdbc:postgresql://localhost:5432/monopolydb
     username: admin
     password: admin
+  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    generate-ddl: true
+    properties:
+      hibernate:
+        default_schema: monopoly
 
 server:
   servlet:
     context-path: /monopoly
+#    http://localhost:8080/monopoly/swagger-ui/index.html

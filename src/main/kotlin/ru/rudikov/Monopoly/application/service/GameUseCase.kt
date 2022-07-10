@@ -19,7 +19,10 @@ class GameUseCase(
         val chips = chipPort.createChips(request)
         val cells = cellPort.createCells()
 
-        val game = Game(chips = chips, cells = cells)
+        val game = Game(chips = chips, cells = cells).apply {
+            this.chips?.map { chip -> chip.game = this }
+            this.cells?.map { cell -> cell.game = this }
+        }
 
         return gameRepository.save(game)
     }
